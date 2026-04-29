@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.SCHEMA:main</OriginalElement>
+  <nodes>
+    <node x="507.5" y="1724.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.password_reset_tokens</node>
+    <node x="426.5" y="2144.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.migrations</node>
+    <node x="146.0" y="4.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.cache_locks</node>
+    <node x="506.0" y="1264.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.cache</node>
+    <node x="-114.0" y="1132.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.rooms</node>
+    <node x="224.5" y="1180.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.personal_access_tokens</node>
+    <node x="36.5" y="-223.5">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.sqlite_sequence</node>
+    <node x="-101.0" y="-104.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.users</node>
+    <node x="113.0" y="2048.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reviews</node>
+    <node x="507.5" y="480.5">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.sqlite_master</node>
+    <node x="16.5" y="864.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotel_images</node>
+    <node x="-103.5" y="336.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotels</node>
+    <node x="315.5" y="2380.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.job_batches</node>
+    <node x="100.0" y="468.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.sessions</node>
+    <node x="-102.5" y="1604.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reservations</node>
+    <node x="225.5" y="1676.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.failed_jobs</node>
+    <node x="20.5" y="2416.0">4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.jobs</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reservations" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.rooms" relationship="REFERENCES">
+      <point x="50.25" y="-176.0" />
+      <point x="48.25" y="1580.0" />
+      <point x="-22.0" y="1580.0" />
+      <point x="0.0" y="188.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reviews" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.users" relationship="REFERENCES">
+      <point x="56.66666666666667" y="-152.0" />
+      <point x="254.66666666666669" y="2020.0" />
+      <point x="478.0" y="2020.0" />
+      <point x="478.0" y="300.0" />
+      <point x="-2.0" y="300.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotels" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.users" relationship="REFERENCES">
+      <point x="0.0" y="-224.0" />
+      <point x="-22.0" y="300.0" />
+      <point x="-2.0" y="300.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.sessions" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.users" relationship="REFERENCES">
+      <point x="0.0" y="-92.0" />
+      <point x="178.0" y="300.0" />
+      <point x="-2.0" y="300.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reservations" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.users" relationship="REFERENCES">
+      <point x="-50.25" y="-176.0" />
+      <point x="-52.25" y="1580.0" />
+      <point x="-142.0" y="1580.0" />
+      <point x="-142.0" y="300.0" />
+      <point x="-2.0" y="300.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotel_images" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-116.0" />
+      <point x="98.0" y="840.0" />
+      <point x="-22.0" y="840.0" />
+      <point x="0.0" y="224.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reviews" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-152.0" />
+      <point x="198.0" y="840.0" />
+      <point x="-22.0" y="840.0" />
+      <point x="0.0" y="224.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reviews" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.reservations" relationship="REFERENCES">
+      <point x="-56.666666666666686" y="-152.0" />
+      <point x="141.33333333333331" y="2020.0" />
+      <point x="-2.0" y="2020.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.rooms" target="4aa7dae6-ecce-4c46-aa76-cbd3e92c8b7a.TABLE:main.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-188.0" />
+      <point x="0.0" y="224.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.1952479338842975" showDependencies="false" x="303.5" y="1228.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

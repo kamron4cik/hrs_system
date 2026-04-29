@@ -1,0 +1,4 @@
+/* App-level layout styles */
+.page-content {
+  min-height: 100vh;
+}

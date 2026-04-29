@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./hrs-backend
+      dockerfile: Dockerfile
+    container_name: hrs_backend
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./hrs-backend:/var/www/html
+      - /var/www/html/vendor
+    environment:
+      APP_URL: http://localhost:8000
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/html/database/database.sqlite
+      FRONTEND_URL: http://localhost:5173
+      SANCTUM_STATEFUL_DOMAINS: localhost:5173,127.0.0.1:5173,localhost:8000,127.0.0.1:8000
+    command: >
+      sh -c "
+      echo 'Running migrations and starting server...' &&
+      php artisan migrate --force &&
+      apache2-foreground"
+
+  frontend:
+    build:
+      context: ./hrs-frontend
+      dockerfile: Dockerfile
+    container_name: hrs_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

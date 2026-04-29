@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Token Variables ───────────────────────────────────────────────── */
+:root {
+  --void:      #050505;
+  --alabaster: #F4F4F0;
+  --gold:      #C5A059;
+  --charcoal:  #1A1A1A;
+  --radius:    0.625rem;
+}
+
+/* ─── Base Layer ────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--void);
+    color: var(--alabaster);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── Custom scrollbar ── */
+  ::-webkit-scrollbar        { width: 5px; }
+  ::-webkit-scrollbar-track  { background: var(--void); }
+  ::-webkit-scrollbar-thumb  { background: var(--charcoal); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+  /* ── Selection ── */
+  ::selection {
+    background: rgba(197, 160, 89, 0.3);
+    color: var(--alabaster);
+  }
+}
+
+/* ─── Component Layer ───────────────────────────────────────────────────────── */
+@layer components {
+  /* Typography */
+  .font-display { font-family: 'Playfair Display', serif; }
+  .font-body    { font-family: 'Inter', sans-serif; }
+
+  /* Colour helpers */
+  .text-gold  { color: var(--gold); }
+  .bg-gold    { background-color: var(--gold); }
+  .text-alabaster { color: var(--alabaster); }
+  .bg-void    { background-color: var(--void); }
+  .bg-charcoal { background-color: var(--charcoal); }
+
+  /* Glass morphism card */
+  .glass {
+    background: rgba(244, 244, 240, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(244, 244, 240, 0.08);
+  }
+
+  /* Premium card */
+  .hrs-card {
+    background: var(--charcoal);
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    border-radius: 1rem;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  }
+  .hrs-card:hover {
+    border-color: rgba(197, 160, 89, 0.35);
+    box-shadow: 0 0 40px rgba(197, 160, 89, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Gold CTA button */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    background-color: var(--gold);
+    color: var(--void);
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
+  }
+  .btn-gold:hover {
+    background-color: var(--alabaster);
+    transform: scale(1.02);
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(244, 244, 240, 0.25);
+    color: var(--alabaster);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+  .btn-ghost:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--void);
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Custom cursor */
+  .custom-cursor { cursor: none; }
+
+  /* Shimmer skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+}
+
+/* ─── Browser autofill override ────────────────────────────────────────────── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--alabaster) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--charcoal) inset !important;
+  box-shadow: 0 0 0px 1000px var(--charcoal) inset !important;
+  caret-color: var(--alabaster);
+  border-color: rgba(197, 160, 89, 0.3) !important;
+  transition: background-color 99999s ease-in-out 0s;
+}
+
+/* ─── Date-picker dark theme override ──────────────────────────────────────── */
+.react-datepicker {
+  background: var(--charcoal) !important;
+  border: 1px solid rgba(197, 160, 89, 0.2) !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--alabaster) !important;
+}
+.react-datepicker__header {
+  background: var(--void) !important;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.1) !important;
+}
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__navigation-icon::before { color: var(--alabaster) !important; border-color: var(--alabaster) !important; }
+.react-datepicker__day {
+  color: var(--alabaster) !important;
+}
+.react-datepicker__day:hover {
+  background: rgba(197, 160, 89, 0.2) !important;
+  border-radius: 50% !important;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range,
+.react-datepicker__day--keyboard-selected {
+  background: var(--gold) !important;
+  color: var(--void) !important;
+  border-radius: 50% !important;
+}
+.react-datepicker__day--in-selecting-range {
+  background: rgba(197, 160, 89, 0.3) !important;
+}
